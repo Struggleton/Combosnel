@@ -26,6 +26,8 @@ If you would like to donate to the project, you can do so using the links here:
 	- Set which direction the CPU should SDI in and how fast. 
 - Enable DI 
 	- Set a direction for the CPU to hold.
+- Press Selected Button
+	- Choose a button and press this so you can map the button in an emulator.
 
 # Notes
 - Because this application is simply making inputs, we're limited on what we can actually do. No tech/ledge options/savestates/complicated features are in this application's future.
