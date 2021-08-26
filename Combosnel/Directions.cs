@@ -67,7 +67,7 @@ namespace Combosnel
 
     public enum Direction
     {
-        None, Forward, Backwards,
+        None, Random, Forward, Backwards,
         Up, Down,
         ForwardAndUp, ForwardAndDown,
         BackandUp, BackandDown

@@ -309,7 +309,14 @@ namespace Combosnel
 
         private void _diTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            switch (_currentDIAngle)
+            // Assign the current DI angle to a new variable...
+            var setDIAngle = _currentDIAngle;
+
+            // So we can see if it's random and generate a random enum value
+            if (setDIAngle == Direction.Random)
+                setDIAngle = (Direction)new Random().Next(0, Enum.GetValues(typeof(Direction)).Length);
+
+            switch (setDIAngle)
             {
                 case Direction.None:
                     _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angNone.X);
@@ -355,7 +362,7 @@ namespace Combosnel
        
         private void _shieldTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            switch(_currentShieldType)
+            switch (_currentShieldType)
             {
                 // Release triggers
                 case ShieldType.None:
@@ -461,7 +468,5 @@ namespace Combosnel
         {
             None, Hold, Flash
         }
-
-        
     }
 }
