@@ -40,6 +40,3 @@ Credits and appreciation go to:
 
 ## Libraries used
 - ViGEm.NET
-
-## Contributing and Support
-Thank you! I am still learning a lot about the USB architecture and Gamecube Controllers, so any help / commits are appreciated! I can be contacted on Discord at Struggleton#4071 / Twitter at @Struggleton as well. 
