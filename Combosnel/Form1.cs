@@ -357,6 +357,7 @@ namespace Combosnel
         {
             switch(_currentShieldType)
             {
+                // Release triggers
                 case ShieldType.None:
                     _controller.SetSliderValue(Xbox360Slider.LeftTrigger, 0);
                     _controller.SetSliderValue(Xbox360Slider.RightTrigger, 0);
