@@ -3,7 +3,7 @@
 
 Combosnel - A basic training application for Super Smash Bros. Ultimate + emulators (Combo-ss-nel)
 ------------
-![enter image description here](https://github.com/Struggleton/Delfinovin/blob/wpf-uidev/MainWindow_Screenshot.png?raw=true)
+![enter image description here](https://github.com/Struggleton/Combosnel/blob/master/MainWindow_Screenshot.png?raw=true)
 
 Combosnel is a basic application for tas-like inputs in Training Mode of Smash Ultimate while using an emulator.
 
