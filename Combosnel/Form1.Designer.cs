@@ -31,6 +31,8 @@ namespace Combosnel
         {
             this.btnConnect = new System.Windows.Forms.Button();
             this.grbCPUOptions = new System.Windows.Forms.GroupBox();
+            this.btnPressSelected = new System.Windows.Forms.Button();
+            this.cmbButton = new System.Windows.Forms.ComboBox();
             this.nudSDIFrames = new System.Windows.Forms.NumericUpDown();
             this.nudShieldHoldTime = new System.Windows.Forms.NumericUpDown();
             this.cmbShieldType = new System.Windows.Forms.ComboBox();
@@ -57,6 +59,8 @@ namespace Combosnel
             // grbCPUOptions
             // 
             this.grbCPUOptions.BackColor = System.Drawing.SystemColors.Control;
+            this.grbCPUOptions.Controls.Add(this.btnPressSelected);
+            this.grbCPUOptions.Controls.Add(this.cmbButton);
             this.grbCPUOptions.Controls.Add(this.nudSDIFrames);
             this.grbCPUOptions.Controls.Add(this.nudShieldHoldTime);
             this.grbCPUOptions.Controls.Add(this.cmbShieldType);
@@ -67,10 +71,31 @@ namespace Combosnel
             this.grbCPUOptions.Controls.Add(this.chbEnableDI);
             this.grbCPUOptions.Location = new System.Drawing.Point(13, 53);
             this.grbCPUOptions.Name = "grbCPUOptions";
-            this.grbCPUOptions.Size = new System.Drawing.Size(412, 117);
+            this.grbCPUOptions.Size = new System.Drawing.Size(412, 175);
             this.grbCPUOptions.TabIndex = 3;
             this.grbCPUOptions.TabStop = false;
             this.grbCPUOptions.Text = "CPU Options";
+            // 
+            // btnPressSelected
+            // 
+            this.btnPressSelected.Enabled = false;
+            this.btnPressSelected.Location = new System.Drawing.Point(148, 146);
+            this.btnPressSelected.Name = "btnPressSelected";
+            this.btnPressSelected.Size = new System.Drawing.Size(131, 23);
+            this.btnPressSelected.TabIndex = 17;
+            this.btnPressSelected.Text = "Press Selected Button";
+            this.btnPressSelected.UseVisualStyleBackColor = true;
+            this.btnPressSelected.Click += new System.EventHandler(this.btnPressSelected_Click);
+            // 
+            // cmbButton
+            // 
+            this.cmbButton.Enabled = false;
+            this.cmbButton.FormattingEnabled = true;
+            this.cmbButton.Location = new System.Drawing.Point(285, 146);
+            this.cmbButton.Name = "cmbButton";
+            this.cmbButton.Size = new System.Drawing.Size(121, 23);
+            this.cmbButton.TabIndex = 16;
+            this.cmbButton.SelectionChangeCommitted += new System.EventHandler(this.cmbButton_SelectionChangeCommitted);
             // 
             // nudSDIFrames
             // 
@@ -183,7 +208,7 @@ namespace Combosnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 181);
+            this.ClientSize = new System.Drawing.Size(434, 240);
             this.Controls.Add(this.grbCPUOptions);
             this.Controls.Add(this.btnConnect);
             this.Name = "Form1";
@@ -208,6 +233,8 @@ namespace Combosnel
         private System.Windows.Forms.ComboBox cmbSDIDirection;
         private System.Windows.Forms.CheckBox chbEnableSDI;
         private System.Windows.Forms.NumericUpDown nudSDIFrames;
+        private System.Windows.Forms.Button btnPressSelected;
+        private System.Windows.Forms.ComboBox cmbButton;
     }
 }
 

@@ -2,6 +2,7 @@
 using Nefarius.ViGEm.Client.Targets;
 using Nefarius.ViGEm.Client.Targets.Xbox360;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Combosnel
@@ -19,6 +20,7 @@ namespace Combosnel
         private Direction _currentDIAngle;
         private Direction _currentSDIAngle;
         private ShieldType _currentShieldType;
+        private Button _currentButton;
 
         private bool _shieldStatus;
         private int _currentSDIIDX = 0;
@@ -29,9 +31,10 @@ namespace Combosnel
             InitializeComponent();
 
             // Set the data sources for each dropdown to an Enum so we can easily get enum values later
-            cmbDIDirection.DataSource = Enum.GetValues(typeof(Direction));
             cmbShieldType.DataSource = Enum.GetValues(typeof(ShieldType));
+            cmbDIDirection.DataSource = Enum.GetValues(typeof(Direction));
             cmbSDIDirection.DataSource = Enum.GetValues(typeof(Direction));
+            cmbButton.DataSource = Enum.GetValues(typeof(Button));
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -43,6 +46,9 @@ namespace Combosnel
                 chbEnableDI.Enabled = true;
                 chbShieldHold.Enabled = true;
                 chbEnableSDI.Enabled = true;
+
+                btnPressSelected.Enabled = true;
+                cmbButton.Enabled = true;
 
                 // Create a new ViGEm Client
                 _controllerClient = new ViGEmClient();
@@ -72,6 +78,87 @@ namespace Combosnel
 
                 // Set the status as disconnected.
                 _isConnected = false;
+            }
+        }
+
+        private void btnPressSelected_Click(object sender, EventArgs e)
+        {
+            // We need to wait for a certain amount of time before releasing the button.
+            // Wait for 24ms before releasing it.
+            var sw = Stopwatch.StartNew();
+
+            if (_currentButton == Button.LeftTrigger)
+            {
+                _controller.SetSliderValue(Xbox360Slider.LeftTrigger, 255);
+                _controller.SubmitReport();
+
+                while (sw.ElapsedTicks < 240000) { }
+
+                _controller.SetSliderValue(Xbox360Slider.LeftTrigger, 0);
+                _controller.SubmitReport();
+            }
+
+            else if (_currentButton == Button.RightTrigger)
+            {
+                _controller.SetSliderValue(Xbox360Slider.RightTrigger, 255);
+                _controller.SubmitReport();
+
+                while (sw.ElapsedTicks < 240000) { }
+
+                _controller.SetSliderValue(Xbox360Slider.RightTrigger, 0);
+                _controller.SubmitReport();
+            }
+
+            else if (_currentButton == Button.StickDown)
+            {
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angDown.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angDown.Y);
+                _controller.SubmitReport();
+
+                while (sw.ElapsedTicks < 240000) { }
+
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angNone.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angNone.Y);
+                _controller.SubmitReport();
+            }
+
+            else if (_currentButton == Button.StickUp)
+            {
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angUp.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angUp.Y);
+                _controller.SubmitReport();
+
+                while (sw.ElapsedTicks < 240000) { }
+
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angNone.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angNone.Y);
+                _controller.SubmitReport();                      
+            }                                                    
+                                                                 
+            else if (_currentButton == Button.StickRight)        
+            {                                                    
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angForward.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angForward.Y);
+                _controller.SubmitReport();                     
+                                                                
+                while (sw.ElapsedTicks < 240000) { }            
+                                                                
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angNone.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angNone.Y);
+                _controller.SubmitReport();                    
+            }                                                  
+                                                               
+            else if (_currentButton == Button.StickLeft)       
+            {                                                  
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angBackwards.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angBackwards.Y);
+                _controller.SubmitReport();                     
+                                                                
+                while (sw.ElapsedTicks < 240000) { }            
+                                                                
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbX, (short)Directions.angNone.X);
+                _controller.SetAxisValue(Xbox360Axis.LeftThumbY, (short)Directions.angNone.Y);
+                _controller.SubmitReport();
             }
         }
 
@@ -139,8 +226,6 @@ namespace Combosnel
             }
         }
 
-       
-
         private void chbShieldHold_CheckedChanged(object sender, EventArgs e)
         {
             // Enable/disable the shield type dropdown based on the checkbox state
@@ -172,24 +257,6 @@ namespace Combosnel
                 // We're done with the timer, get rid of it
                 _shieldTimer.Dispose();
             }
-        }
-
-        private void IncrementSDIAngle()
-        {
-            // Add the delta to the index
-            _currentSDIIDX += _sdiDelta;
-
-            // This fixes an issue I'm too lazy to figure the cause of
-            if (_currentSDIIDX == -1)
-                _currentSDIIDX = 0;
-
-            // We reached 0, start adding.
-            if (_currentSDIIDX == 0)
-                _sdiDelta = 1;
-
-            // We reached 2, start subtracting.
-            if (_currentSDIIDX == 2)
-                _sdiDelta = -1;
         }
 
         private void _sdiTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -239,7 +306,6 @@ namespace Combosnel
             // Submit the report
             _controller.SubmitReport();
         }
-
 
         private void _diTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -347,6 +413,11 @@ namespace Combosnel
             nudShieldHoldTime.Enabled = _currentShieldType == ShieldType.Flash;
         }
 
+        private void cmbButton_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            _currentButton = (Button)cmbButton.SelectedItem;
+        }
+
         private void nudShieldHoldTime_ValueChanged(object sender, EventArgs e)
         {
             // 1 frame is 16ms, this resets the timer
@@ -359,9 +430,36 @@ namespace Combosnel
             _sdiTimer.Interval = (double)(nudSDIFrames.Value * 16);
         }
 
+        private void IncrementSDIAngle()
+        {
+            // Add the delta to the index
+            _currentSDIIDX += _sdiDelta;
+
+            // This fixes an issue I'm too lazy to figure the cause of
+            if (_currentSDIIDX == -1)
+                _currentSDIIDX = 0;
+
+            // We reached 0, start adding.
+            if (_currentSDIIDX == 0)
+                _sdiDelta = 1;
+
+            // We reached 2, start subtracting.
+            if (_currentSDIIDX == 2)
+                _sdiDelta = -1;
+        }
+
+        private enum Button
+        {
+            LeftTrigger, RightTrigger,
+            StickLeft, StickRight,
+            StickDown, StickUp
+        }
+
         private enum ShieldType
         {
             None, Hold, Flash
         }
+
+        
     }
 }
