@@ -359,6 +359,7 @@ namespace Combosnel
             {
                 case ShieldType.None:
                     _controller.SetSliderValue(Xbox360Slider.LeftTrigger, 0);
+                    _controller.SetSliderValue(Xbox360Slider.RightTrigger, 0);
                     break;
 
                 // Double hold the triggers so we get a hard shield in Ultimate
