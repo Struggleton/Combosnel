@@ -48,9 +48,9 @@ namespace Combosnel
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(12, 12);
+            this.btnConnect.Location = new System.Drawing.Point(10, 10);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(136, 34);
+            this.btnConnect.Size = new System.Drawing.Size(117, 29);
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect Controller";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -69,9 +69,9 @@ namespace Combosnel
             this.grbCPUOptions.Controls.Add(this.cmbDIDirection);
             this.grbCPUOptions.Controls.Add(this.chbEnableSDI);
             this.grbCPUOptions.Controls.Add(this.chbEnableDI);
-            this.grbCPUOptions.Location = new System.Drawing.Point(13, 53);
+            this.grbCPUOptions.Location = new System.Drawing.Point(11, 46);
             this.grbCPUOptions.Name = "grbCPUOptions";
-            this.grbCPUOptions.Size = new System.Drawing.Size(412, 175);
+            this.grbCPUOptions.Size = new System.Drawing.Size(353, 152);
             this.grbCPUOptions.TabIndex = 3;
             this.grbCPUOptions.TabStop = false;
             this.grbCPUOptions.Text = "CPU Options";
@@ -79,9 +79,9 @@ namespace Combosnel
             // btnPressSelected
             // 
             this.btnPressSelected.Enabled = false;
-            this.btnPressSelected.Location = new System.Drawing.Point(148, 146);
+            this.btnPressSelected.Location = new System.Drawing.Point(111, 127);
             this.btnPressSelected.Name = "btnPressSelected";
-            this.btnPressSelected.Size = new System.Drawing.Size(131, 23);
+            this.btnPressSelected.Size = new System.Drawing.Size(128, 20);
             this.btnPressSelected.TabIndex = 17;
             this.btnPressSelected.Text = "Press Selected Button";
             this.btnPressSelected.UseVisualStyleBackColor = true;
@@ -91,23 +91,23 @@ namespace Combosnel
             // 
             this.cmbButton.Enabled = false;
             this.cmbButton.FormattingEnabled = true;
-            this.cmbButton.Location = new System.Drawing.Point(285, 146);
+            this.cmbButton.Location = new System.Drawing.Point(244, 127);
             this.cmbButton.Name = "cmbButton";
-            this.cmbButton.Size = new System.Drawing.Size(121, 23);
+            this.cmbButton.Size = new System.Drawing.Size(104, 21);
             this.cmbButton.TabIndex = 16;
             this.cmbButton.SelectionChangeCommitted += new System.EventHandler(this.cmbButton_SelectionChangeCommitted);
             // 
             // nudSDIFrames
             // 
             this.nudSDIFrames.Enabled = false;
-            this.nudSDIFrames.Location = new System.Drawing.Point(256, 52);
+            this.nudSDIFrames.Location = new System.Drawing.Point(219, 45);
             this.nudSDIFrames.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudSDIFrames.Name = "nudSDIFrames";
-            this.nudSDIFrames.Size = new System.Drawing.Size(120, 23);
+            this.nudSDIFrames.Size = new System.Drawing.Size(103, 20);
             this.nudSDIFrames.TabIndex = 15;
             this.nudSDIFrames.Value = new decimal(new int[] {
             1,
@@ -119,14 +119,14 @@ namespace Combosnel
             // nudShieldHoldTime
             // 
             this.nudShieldHoldTime.Enabled = false;
-            this.nudShieldHoldTime.Location = new System.Drawing.Point(256, 20);
+            this.nudShieldHoldTime.Location = new System.Drawing.Point(219, 17);
             this.nudShieldHoldTime.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudShieldHoldTime.Name = "nudShieldHoldTime";
-            this.nudShieldHoldTime.Size = new System.Drawing.Size(120, 23);
+            this.nudShieldHoldTime.Size = new System.Drawing.Size(103, 20);
             this.nudShieldHoldTime.TabIndex = 12;
             this.nudShieldHoldTime.Value = new decimal(new int[] {
             1,
@@ -139,9 +139,9 @@ namespace Combosnel
             // 
             this.cmbShieldType.Enabled = false;
             this.cmbShieldType.FormattingEnabled = true;
-            this.cmbShieldType.Location = new System.Drawing.Point(129, 20);
+            this.cmbShieldType.Location = new System.Drawing.Point(111, 17);
             this.cmbShieldType.Name = "cmbShieldType";
-            this.cmbShieldType.Size = new System.Drawing.Size(121, 23);
+            this.cmbShieldType.Size = new System.Drawing.Size(104, 21);
             this.cmbShieldType.TabIndex = 11;
             this.cmbShieldType.Text = "Shield Hold";
             this.cmbShieldType.SelectionChangeCommitted += new System.EventHandler(this.cmbShieldType_SelectionChangeCommitted);
@@ -150,9 +150,9 @@ namespace Combosnel
             // 
             this.cmbSDIDirection.Enabled = false;
             this.cmbSDIDirection.FormattingEnabled = true;
-            this.cmbSDIDirection.Location = new System.Drawing.Point(129, 52);
+            this.cmbSDIDirection.Location = new System.Drawing.Point(111, 45);
             this.cmbSDIDirection.Name = "cmbSDIDirection";
-            this.cmbSDIDirection.Size = new System.Drawing.Size(121, 23);
+            this.cmbSDIDirection.Size = new System.Drawing.Size(104, 21);
             this.cmbSDIDirection.TabIndex = 14;
             this.cmbSDIDirection.Text = "Direction";
             this.cmbSDIDirection.SelectionChangeCommitted += new System.EventHandler(this.cmbSDIDirection_SelectionChangeCommitted);
@@ -161,9 +161,9 @@ namespace Combosnel
             // 
             this.chbShieldHold.AutoSize = true;
             this.chbShieldHold.Enabled = false;
-            this.chbShieldHold.Location = new System.Drawing.Point(6, 22);
+            this.chbShieldHold.Location = new System.Drawing.Point(5, 19);
             this.chbShieldHold.Name = "chbShieldHold";
-            this.chbShieldHold.Size = new System.Drawing.Size(96, 19);
+            this.chbShieldHold.Size = new System.Drawing.Size(91, 17);
             this.chbShieldHold.TabIndex = 10;
             this.chbShieldHold.Text = "Enable Shield";
             this.chbShieldHold.UseVisualStyleBackColor = true;
@@ -173,9 +173,9 @@ namespace Combosnel
             // 
             this.cmbDIDirection.Enabled = false;
             this.cmbDIDirection.FormattingEnabled = true;
-            this.cmbDIDirection.Location = new System.Drawing.Point(129, 83);
+            this.cmbDIDirection.Location = new System.Drawing.Point(111, 72);
             this.cmbDIDirection.Name = "cmbDIDirection";
-            this.cmbDIDirection.Size = new System.Drawing.Size(121, 23);
+            this.cmbDIDirection.Size = new System.Drawing.Size(104, 21);
             this.cmbDIDirection.TabIndex = 9;
             this.cmbDIDirection.Text = "Direction";
             this.cmbDIDirection.SelectionChangeCommitted += new System.EventHandler(this.cmbDIDirection_SelectionChangeCommitted);
@@ -184,9 +184,9 @@ namespace Combosnel
             // 
             this.chbEnableSDI.AutoSize = true;
             this.chbEnableSDI.Enabled = false;
-            this.chbEnableSDI.Location = new System.Drawing.Point(6, 54);
+            this.chbEnableSDI.Location = new System.Drawing.Point(5, 47);
             this.chbEnableSDI.Name = "chbEnableSDI";
-            this.chbEnableSDI.Size = new System.Drawing.Size(81, 19);
+            this.chbEnableSDI.Size = new System.Drawing.Size(80, 17);
             this.chbEnableSDI.TabIndex = 13;
             this.chbEnableSDI.Text = "Enable SDI";
             this.chbEnableSDI.UseVisualStyleBackColor = true;
@@ -196,9 +196,9 @@ namespace Combosnel
             // 
             this.chbEnableDI.AutoSize = true;
             this.chbEnableDI.Enabled = false;
-            this.chbEnableDI.Location = new System.Drawing.Point(6, 85);
+            this.chbEnableDI.Location = new System.Drawing.Point(5, 74);
             this.chbEnableDI.Name = "chbEnableDI";
-            this.chbEnableDI.Size = new System.Drawing.Size(75, 19);
+            this.chbEnableDI.Size = new System.Drawing.Size(73, 17);
             this.chbEnableDI.TabIndex = 8;
             this.chbEnableDI.Text = "Enable DI";
             this.chbEnableDI.UseVisualStyleBackColor = true;
@@ -206,9 +206,9 @@ namespace Combosnel
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 240);
+            this.ClientSize = new System.Drawing.Size(372, 208);
             this.Controls.Add(this.grbCPUOptions);
             this.Controls.Add(this.btnConnect);
             this.Name = "Form1";
